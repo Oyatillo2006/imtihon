@@ -38,6 +38,7 @@
                 border-radius: 40px;
                 background-color: orange;
                 float: left;
+                margin-bottom: 35px;
             }
 
             .card:hover {
@@ -75,8 +76,9 @@
             }
 
             .form {
+                padding: 10px;
                 width: 30%;
-                height: 250px;
+                height: 300px;
                 background-color: orange;
                 float: right;
                 border-radius: 30px;
@@ -95,30 +97,38 @@
                 width: 50%;
                 height: 12%;
                 margin-bottom: 10px;
+                border-radius: 4px;
+                padding: 4px;
             }
 
             select {
                 margin-top: 10px;
+                padding: 4px;
             }
 
             .submit {
                 margin-top: 20px;
+            }
+
+            textarea {
+                padding: 4px;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="header">
-                <h1><em>Kundalik reja</em></h1>
+                <h1><em>Kundalik ishlar</em></h1>
             </div>
             <div class="content">
+                {% for todo in todos %}
                 <div class="card">
-                    <h2 class="title" align="center">Title</h2>
-                    <div class="time"><h3>Time</h3></div>
+                    <h2 class="title" align="center">{{todo.title}}</h2>
+                    <div class="time"><h3>{{todo.time}}</h3></div>
                     <hr />
-                    <div class="docs"><h3>Docs</h3></div>
+                    <div class="docs"><h3>{{todo.docs}}</h3></div>
                     <hr />
-                    <div class="status"><h3>Status</h3></div>
+                    <div class="status"><h3>{{todo.status}}</h3></div>
                     <hr />
                     <div class="buttons">
                         <a href=""><button class="edit_btn">Edit</button></a>
@@ -127,10 +137,11 @@
                         >
                     </div>
                 </div>
-                <div class="form">
-                    <form action="/" method="post">
+                {% endfor %}
+                <div class="form" style="position:absolute; left:65%;">
+                    <form action="/" method="post">{% csrf_token %}
                         <input type="text" name="title" placeholder="Title" />
-                        <input type="time" name="time" placeholder="Time" />
+                        <input type="datetime-local" name="time" placeholder="Time" />
                         <textarea
                             name="docs"
                             cols="30"
