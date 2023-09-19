@@ -16,3 +16,8 @@ def home(request):
     }
     return render(request, "todo.html", context)
 
+
+
+def delete(request, id):
+    Todo.objects.get(id=id).delete()
+    return redirect("/")
