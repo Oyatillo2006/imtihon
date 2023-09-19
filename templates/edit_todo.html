@@ -125,8 +125,8 @@
                 <h1><em>Kundalik ishlar</em></h1>
             </div>
             <div class="content">
-                <div class="form" style="position:absolute; left:65%;">
-                    <form action="/edit/" method="post">{% csrf_token %}
+                <div class="form" style="position:absolute;">
+                    <form action="/edit/{{todo.id}}/" method="post">{% csrf_token %}
                         <input type="text" name="title" value="{{todo.title}}" />
                         <input type="datetime-local" name="time" value="{{todo.time}}" />
                         <textarea
@@ -136,11 +136,11 @@
                             placeholder="Description"
                         ></textarea>
                         <select name="status">
-                            {% if todo.status == "bajarildi %}
+                            {% if todo.status == "bajarildi" %}
                               <option value="Bajarildi" selected>Bajarildi</option>
                               <option value="Bajarilmadi">Bajarilmadi</option>
                               <option value="Bajarilmoqda">Bajarilmoqda</option>
-                            {% if todo.status == "bajarilmadi %}
+                            {% elif todo.status == "bajarilmadi" %}
                               <option value="Bajarildi" >Bajarildi</option>
                               <option value="Bajarilmadi" selected>Bajarilmadi</option>
                               <option value="Bajarilmoqda">Bajarilmoqda</option>

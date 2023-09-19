@@ -135,7 +135,7 @@
                     <div class="status"><h3>{{todo.status}}</h3></div>
                     <hr />
                     <div class="buttons">
-                        <a href="/edit/{{todo.ed}}/"><button class="edit_btn">Edit</button></a>
+                        <a href="/edit/{{todo.id}}/"><button class="edit_btn">Edit</button></a>
                         <a href="/delete/{{todo.id}}/"
                             ><button class="delete_btn">Delete</button></a
                         >
@@ -153,9 +153,9 @@
                             placeholder="Description"
                         ></textarea>
                         <select name="status">
-                            <option value="Bajarildi">Bajarildi</option>
-                            <option value="Bajarilmadi">Bajarilmadi</option>
-                            <option value="Bajarilmoqda">Bajarilmoqda</option>
+                            <option value="bajarildi">Bajarildi</option>
+                            <option value="bajarilmadi">Bajarilmadi</option>
+                            <option value="bajarilmoqda">Bajarilmoqda</option>
                         </select>
                         <button class="submit" type="submit">save</button>
                     </form>
